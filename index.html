@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="index,follow">
+<title>StudyPlan · Política de privacidad / Privacy Policy</title>
+<meta name="description" content="Política de privacidad de StudyPlan / StudyPlan privacy policy">
+<script>
+  // Detecta el idioma del navegador (es o en). Prioridad: ?lang=es|en, luego el idioma guardado, luego el navegador.
+  (function () {
+    var elegido = null;
+    try {
+      var p = new URLSearchParams(location.search).get('lang');
+      if (p === 'es' || p === 'en') { elegido = p; }
+    } catch (e) {}
+    if (!elegido) {
+      try { var g = localStorage.getItem('idioma'); if (g === 'es' || g === 'en') { elegido = g; } } catch (e) {}
+    }
+    if (!elegido) {
+      var idiomas = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'es'];
+      elegido = 'en';
+      for (var i = 0; i < idiomas.length; i++) {
+        var c = String(idiomas[i] || '').toLowerCase();
+        if (c.indexOf('es') === 0) { elegido = 'es'; break; }
+        if (c.indexOf('en') === 0) { elegido = 'en'; break; }
+      }
+    }
+    document.documentElement.setAttribute('data-lang', elegido);
+    document.documentElement.lang = elegido;
+  })();
+</script>
+<style>
+  :root {
+    --bg: #f4f5f9; --surface: #ffffff; --text: #111827; --muted: #4b5563;
+    --action: #4338ca; --on-action: #ffffff; --border: #e0e7ff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #11131f; --surface: #1a1d2d; --text: #f9fafb; --muted: #9ca3af;
+      --action: #818cf8; --on-action: #11131f; --border: #23273d;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 760px; margin: 0 auto; padding: 24px 16px 64px; }
+  header { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+  h1 { font-size: 1.6rem; margin: 0.2em 0; }
+  h2 { font-size: 1.15rem; margin-top: 1.8em; }
+  p, li { color: var(--text); }
+  .muted { color: var(--muted); font-size: 0.9rem; }
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 4px 20px 20px; margin-top: 16px; }
+  .idiomas { display: flex; gap: 8px; }
+  .idiomas button {
+    min-height: 44px; min-width: 56px; padding: 0 14px; border-radius: 999px; cursor: pointer;
+    border: 1px solid var(--action); background: transparent; color: var(--action); font: inherit; font-weight: 600;
+  }
+  .idiomas button[aria-pressed="true"] { background: var(--action); color: var(--on-action); }
+  a { color: var(--action); }
+  table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 0.95rem; }
+  th, td { text-align: left; border-bottom: 1px solid var(--border); padding: 8px 6px; vertical-align: top; }
+  .aviso { border-left: 4px solid var(--action); padding: 6px 12px; background: var(--surface); border-radius: 0 8px 8px 0; }
+  /* Sin JavaScript se muestran los dos idiomas. Con JavaScript, solo el elegido. */
+  html[data-lang="es"] .en, html[data-lang="en"] .es { display: none; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div>
+      <h1>StudyPlan</h1>
+      <span class="muted es">Política de privacidad · Última actualización: 22 de noviembre de 2026</span>
+      <span class="muted en">Privacy Policy · Last updated: November 22, 2026</span>
+    </div>
+    <div class="idiomas" role="group" aria-label="Idioma / Language">
+      <button type="button" data-set="es" aria-pressed="false">ES</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+  </header>
+
+  <!-- ===================== ESPAÑOL ===================== -->
+  <section class="es card" lang="es">
+    <h2>1. Quiénes somos</h2>
+    <p>StudyPlan es una aplicación Android para que un estudiante gestione sus materias, planifique sesiones de estudio,
+    defina metas semanales y consulte reportes y estadísticas. Su identificador es
+    <code>io.github.jhoel0521.studyplan</code>. La desarrolla <strong>jhoel0521</strong>
+    (contacto: <strong>jhoel0521@gmail.com</strong>).</p>
+
+    <h2>2. Resumen</h2>
+    <ul>
+      <li><strong>Tus datos se quedan en tu teléfono.</strong> La app funciona sin conexión y no tiene cuentas propias ni servidor propio.</li>
+      <li>No usamos publicidad, ni análisis de uso, ni rastreadores, y no vendemos ni compartimos tus datos.</li>
+      <li>La única función que puede usar internet es la <strong>copia de seguridad opcional en tu propio Google Drive</strong> (ver el apartado 5).</li>
+    </ul>
+
+    <h2>3. Qué datos guarda la app</h2>
+    <table>
+      <tr><th>Dato</th><th>Para qué</th></tr>
+      <tr><td>Nombre que escribes y meta semanal de horas</td><td>Personalizar Inicio y medir tu avance</td></tr>
+      <tr><td>Materias (nombre, color, metas) y sesiones de estudio (fechas, horas, estado, eventos con marcas de tiempo)</td><td>Planificar, registrar y mostrar tu estudio, el calendario, las estadísticas y los reportes</td></tr>
+      <tr><td>Ajustes (tema, idioma, recordatorios, técnicas de estudio, bloqueo)</td><td>Recordar tus preferencias</td></tr>
+    </table>
+    <p>Todo se guarda en el almacenamiento interno privado de la app, que otras apps no pueden leer.
+    El desarrollador <strong>no recibe</strong> estos datos.</p>
+
+    <h2>4. Permisos del dispositivo</h2>
+    <ul>
+      <li><strong>Notificaciones y vibración:</strong> recordatorios de sesiones y el aviso de la sesión en curso.</li>
+      <li><strong>Alarmas exactas y reinicio del teléfono:</strong> programar los recordatorios a su hora y volver a programarlos tras reiniciar.</li>
+      <li><strong>Servicio en primer plano:</strong> mantener la notificación de control mientras haya una sesión en curso.</li>
+      <li><strong>No molestar (opcional):</strong> silenciar el teléfono durante una sesión, solo si lo activas.</li>
+      <li><strong>Huella, PIN o bloqueo del dispositivo (opcional):</strong> proteger la app, y la función de bloquear la pantalla durante el estudio. La
+      autenticación la realiza Android; la app no recibe ni guarda tu huella ni tu PIN.</li>
+    </ul>
+
+    <h2>5. Copia de seguridad en Google Drive (opcional)</h2>
+    <div class="aviso">Esta función está <strong>en desarrollo</strong> y puede no estar disponible en la versión que tienes instalada.
+    Esta política describe cómo funcionará cuando se active.</div>
+    <ul>
+      <li>Es <strong>opcional</strong>: si no la activas, la app nunca se conecta a internet.</li>
+      <li>Inicias sesión con tu cuenta de Google y la copia se guarda en la <strong>carpeta oculta de la app</strong> de tu Drive
+      (permiso <code>drive.appdata</code>). La app no puede ver ni modificar los demás archivos de tu Drive.</li>
+      <li>Puedes proteger la copia con una <strong>contraseña</strong>. Si la defines, el archivo se cifra en tu teléfono (AES-256-GCM) antes de subirse;
+      ni el desarrollador ni Google pueden leerlo. <strong>Si olvidas la contraseña, la copia no se puede recuperar.</strong></li>
+      <li>La copia contiene lo mismo que el apartado 3. Se almacena en tu cuenta de Google, que se rige por la
+      <a href="https://policies.google.com/privacy" rel="noopener">política de privacidad de Google</a>.</li>
+      <li>Puedes cambiar su frecuencia, restaurarla o borrarla desde la app en cualquier momento.</li>
+    </ul>
+
+    <h2>6. Cómo borrar tus datos</h2>
+    <ul>
+      <li><strong>En el teléfono:</strong> desde la app, en Ajustes, opción de borrar los datos; o desinstalando la app.</li>
+      <li><strong>En Drive (cuando la copia esté disponible):</strong> desde la app, eligiendo borrar del teléfono, de Drive o de ambos, con doble confirmación.
+      También puedes eliminar los datos de la app desde la configuración de tu cuenta de Google.</li>
+      <li>El borrado es definitivo: el desarrollador no tiene copias.</li>
+    </ul>
+
+    <h2>7. Menores de edad</h2>
+    <p>StudyPlan no está dirigida a niños menores de 13 años y no recopila datos de nadie a sabiendas. Como todo se guarda en el dispositivo,
+    no tenemos acceso a ellos.</p>
+
+    <h2>8. Seguridad</h2>
+    <p>Los datos se guardan en el almacenamiento privado de la app. La copia en Drive, cuando exista, usa conexión cifrada (HTTPS) y puede
+    cifrarse además con tu contraseña. Ningún sistema es infalible; protege tu teléfono y tu cuenta de Google.</p>
+
+    <h2>9. Cambios en esta política</h2>
+    <p>Si cambiamos esta política, publicaremos la nueva versión en esta misma página con su fecha. Los cambios importantes se avisarán en la app.</p>
+
+    <h2>10. Contacto</h2>
+    <p>Para preguntas o solicitudes sobre tus datos: <strong>jhoel0521@gmail.com</strong>.</p>
+  </section>
+
+  <!-- ===================== ENGLISH ===================== -->
+  <section class="en card" lang="en">
+    <h2>1. Who we are</h2>
+    <p>StudyPlan is an Android app that helps a student manage subjects, plan study sessions, set weekly goals and view reports and
+    statistics. Its identifier is <code>io.github.jhoel0521.studyplan</code>. It is developed by <strong>jhoel0521</strong>
+    (contact: <strong>jhoel0521@gmail.com</strong>).</p>
+
+    <h2>2. Summary</h2>
+    <ul>
+      <li><strong>Your data stays on your phone.</strong> The app works offline and has no accounts or servers of its own.</li>
+      <li>We use no advertising, no usage analytics and no trackers, and we do not sell or share your data.</li>
+      <li>The only feature that can use the internet is the <strong>optional backup to your own Google Drive</strong> (see section 5).</li>
+    </ul>
+
+    <h2>3. What data the app stores</h2>
+    <table>
+      <tr><th>Data</th><th>Purpose</th></tr>
+      <tr><td>The name you type and your weekly hour goal</td><td>Personalize Home and measure your progress</td></tr>
+      <tr><td>Subjects (name, color, goals) and study sessions (dates, times, status, timestamped events)</td><td>Plan, record and show your study, the calendar, statistics and reports</td></tr>
+      <tr><td>Settings (theme, language, reminders, study techniques, lock)</td><td>Remember your preferences</td></tr>
+    </table>
+    <p>Everything is stored in the app's private internal storage, which other apps cannot read. The developer
+    <strong>does not receive</strong> this data.</p>
+
+    <h2>4. Device permissions</h2>
+    <ul>
+      <li><strong>Notifications and vibration:</strong> session reminders and the notification of the session in progress.</li>
+      <li><strong>Exact alarms and device restart:</strong> schedule reminders at their time and reschedule them after a restart.</li>
+      <li><strong>Foreground service:</strong> keep the control notification while a session is in progress.</li>
+      <li><strong>Do Not Disturb (optional):</strong> silence the phone during a session, only if you turn it on.</li>
+      <li><strong>Fingerprint, PIN or device lock (optional):</strong> protect the app, and the feature that locks the screen while you study. Android
+      performs the authentication; the app never receives or stores your fingerprint or PIN.</li>
+    </ul>
+
+    <h2>5. Google Drive backup (optional)</h2>
+    <div class="aviso">This feature is <strong>under development</strong> and may not be available in the version you have installed.
+    This policy describes how it will work once enabled.</div>
+    <ul>
+      <li>It is <strong>optional</strong>: if you do not enable it, the app never connects to the internet.</li>
+      <li>You sign in with your Google account and the backup is stored in the app's <strong>hidden folder</strong> in your Drive
+      (<code>drive.appdata</code> permission). The app cannot see or change your other Drive files.</li>
+      <li>You can protect the backup with a <strong>password</strong>. If you set one, the file is encrypted on your phone (AES-256-GCM) before it is uploaded;
+      neither the developer nor Google can read it. <strong>If you forget the password, the backup cannot be recovered.</strong></li>
+      <li>The backup contains the same data as section 3. It is stored in your Google account, which is governed by
+      <a href="https://policies.google.com/privacy" rel="noopener">Google's privacy policy</a>.</li>
+      <li>You can change its frequency, restore it or delete it from the app at any time.</li>
+    </ul>
+
+    <h2>6. How to delete your data</h2>
+    <ul>
+      <li><strong>On the phone:</strong> in the app, under Settings, use the option to delete data; or uninstall the app.</li>
+      <li><strong>On Drive (when the backup is available):</strong> in the app, choosing to delete from the phone, from Drive or both, with double confirmation.
+      You can also remove the app's data from your Google account settings.</li>
+      <li>Deletion is permanent: the developer keeps no copies.</li>
+    </ul>
+
+    <h2>7. Children</h2>
+    <p>StudyPlan is not directed to children under 13 and does not knowingly collect data from anyone. Because everything is stored on the device,
+    we have no access to it.</p>
+
+    <h2>8. Security</h2>
+    <p>Data is stored in the app's private storage. The Drive backup, when it exists, uses an encrypted connection (HTTPS) and can also be
+    encrypted with your password. No system is infallible; protect your phone and your Google account.</p>
+
+    <h2>9. Changes to this policy</h2>
+    <p>If we change this policy, we will publish the new version on this page with its date. Important changes will be announced in the app.</p>
+
+    <h2>10. Contact</h2>
+    <p>For questions or requests about your data: <strong>jhoel0521@gmail.com</strong>.</p>
+  </section>
+
+  <p class="muted es">Esta página no usa cookies, ni análisis, ni rastreadores.</p>
+  <p class="muted en">This page uses no cookies, analytics or trackers.</p>
+</main>
+<script>
+  (function () {
+    var botones = document.querySelectorAll('.idiomas button');
+    function marcar() {
+      var actual = document.documentElement.getAttribute('data-lang');
+      for (var i = 0; i < botones.length; i++) {
+        botones[i].setAttribute('aria-pressed', botones[i].getAttribute('data-set') === actual ? 'true' : 'false');
+      }
+    }
+    for (var i = 0; i < botones.length; i++) {
+      botones[i].addEventListener('click', function (e) {
+        var l = e.currentTarget.getAttribute('data-set');
+        document.documentElement.setAttribute('data-lang', l);
+        document.documentElement.lang = l;
+        try { localStorage.setItem('idioma', l); } catch (err) {}
+        marcar();
+      });
+    }
+    marcar();
+  })();
+</script>
+</body>
+</html>
